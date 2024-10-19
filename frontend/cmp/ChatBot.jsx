@@ -65,6 +65,7 @@ export const Chatbot = () => {
           onChange={(e) => setInput(e.target.value)}
           placeholder="Escribe tu mensaje..."
           className="chatbot-input"
+          autoFocus
         />
         <button type="submit" className="chatbot-submit">Send</button>
       </form>

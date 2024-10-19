@@ -3,7 +3,7 @@ export const chatService = {
 }
 
 const BASE_URL = process.env.NODE_ENV === 'production'
-    ? '/api/'
+    ? '/chat/'
     : '//localhost:3031/chat/';
 
 async function processChatStream(userInput, history) {
