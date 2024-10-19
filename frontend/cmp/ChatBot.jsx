@@ -63,7 +63,7 @@ export const Chatbot = () => {
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder="Type your message..."
+          placeholder="Escribe tu mensaje..."
           className="chatbot-input"
         />
         <button type="submit" className="chatbot-submit">Send</button>
