@@ -46,7 +46,6 @@ export async function processChatStream(message, history, language) {
       systemInstruction: systemInstructions,
     });
     
-    console.log('Chat started, system message=', systemInstructions);
     currentChat = currentModel.startChat({
       history: history,
     });
