@@ -1,7 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import path from 'path'
-import { processChatStream } from './services/chat.service.js'
+import { processChatStream, resetChat } from './services/chat.service.js'
 import { loggerService } from './services/logger.service.js';
 
 const app = express();
@@ -27,17 +27,27 @@ app.use(express.json())
 
 
 app.post('/chat', async (req, res) => {
-  const { message, history } = req.body;
+  const { message, history, language } = req.body;
   
   if (!message) {
     return res.status(400).json({ error: 'Message is required in the request body' });
   }
   
   try {
-    const result = await processChatStream(message, history);
+    const result = await processChatStream(message, history, language);
     res.status(200).json(result);
   } catch (error) {
     loggerService.error('Error processing chat:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.post('/chat/reset', async (req, res) => {
+  try {
+    await resetChat();
+    res.status(200).json({ message: 'Chat reset successfully' });
+  } catch (error) {
+    loggerService.error('Error resetting chat:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });

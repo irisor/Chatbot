@@ -1,6 +1,5 @@
-
 import ReactDOM from 'react-dom/client'
-import '../src/assets/style/main.css'
+import '../src/assets/style/main.scss'
 
 import { App } from './root-cmp.jsx'
 
