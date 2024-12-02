@@ -1,2 +1,13 @@
 @import './cmps/ChatBot.scss';
 @import './cmps/LanguageSelector.scss';
+
+
+.main-layout {
+    display: grid;
+    place-content: end;
+}
+
+main {
+    max-width: 300px;
+    margin: 50px;
+}
